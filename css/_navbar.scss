@@ -1,0 +1,208 @@
+@use 'global-variables' as gv ;
+
+/*====== REMOVE STYLE ======*/
+nav a {
+	text-decoration: none;
+	color: inherit;
+	margin-bottom: 3rem;
+}
+
+nav li {
+	list-style: none;
+}
+
+/*====== NAVBAR ======*/
+header {
+	border-bottom: 2px solid gv.$black-10 ;
+}
+
+nav li>a {
+	padding: 0.5rem 1.5rem;
+	border-radius: 50px;
+	transition: 0.3s;
+}
+
+nav li>a:hover {
+	background-color: gv.$primary-color;
+	color: white;
+}
+
+#logo {
+	width: 7rem;
+}
+
+nav {
+	margin: 1rem 2rem;
+}
+
+nav a {
+	color: gv.$black;
+	font-size: 1.4rem;
+	font-family: gv.$heading-font-family;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+}
+
+.flex-item {
+	margin: 0 1.6rem;
+}
+
+.mr-auto {
+	margin-right: auto;
+}
+
+.grow {
+	flex-grow: 1;
+}
+
+.vertical-divider {
+	width: 0.3rem;
+	height: 3rem;
+	margin-inline: 2rem;
+	background-color: gv.$black-10;
+}
+
+.mail {
+	color: #FC3A79;
+}
+
+.hidden {
+	display: none;
+}
+
+
+
+@media screen and (max-width : 1200px) {
+
+	#logo {
+		width: 60px;
+	}
+
+	.hidden {
+		display: inline;
+	}
+
+	.tablet-nav {
+		display: none;
+	}
+
+	.ml-auto {
+		margin-left: auto;
+	}
+
+	.mr-auto {
+		margin-right: 0;
+	}
+
+	.tablet-nav {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+		height: 0;
+		position: absolute;
+		top: 100px;
+		left: 0;
+		right: 0;
+		width: 100vw;
+		padding: 2rem 0;
+		overflow: hidden;
+		transition: 0.5s;
+	}
+
+	.tablet-nav ul {
+		opacity: 0;
+	}
+
+	.none-divider1 {
+		display: none;
+	}
+
+	.tablet-nav.active {
+		height: 92px;
+		background-color: skyblue;
+	}
+
+	.tablet-nav.active ul {
+		opacity: 1;
+	}
+
+	.hamburger-menu {
+		cursor: pointer;
+		margin-left: auto;
+	}
+
+}
+
+@media screen and (max-width : 600px) {
+
+	.mobile-nav {
+		display: none;
+	}
+
+	.tablet-nav {
+		position: static;
+	}
+
+	.mobile-nav {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+		height: 0;
+		position: absolute;
+		top: 100px;
+		left: 0;
+		right: 0;
+		width: 100vw;
+		padding: 2rem 0;
+		overflow: hidden;
+		transition: 0.2s;
+	}
+
+	.mobile-nav ul {
+		opacity: 0;
+	}
+
+	.tablet-nav {
+		padding: 0;
+	}
+
+
+	.mobile-nav.active {
+		height: 180px;
+		background-color: skyblue;
+	}
+
+	.mobile-nav.active ul,
+	.tablet-nav.active ul {
+		opacity: 1;
+	}
+
+	.ml-auto {
+		margin-left: 0;
+	}
+
+	.none-divider2 {
+		display: none;
+	}
+
+
+}
+
+@media screen and (max-width : 380px) {
+
+	.contact-infos,
+	.nav-links {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+
+}

@@ -1,0 +1,55 @@
+@use 'global-variables' as gv;
+
+/*====== REMOVE STYLE ======*/
+footer a {
+	text-decoration: none;
+	color: inherit;
+	margin-bottom: 3rem;
+}
+
+footer li {
+	list-style: none;
+}
+
+footer {
+	justify-content: space-between;
+	padding-inline: 3rem;
+	padding-block: 0.8rem 0;
+	border-top: 2px solid gv.$black-10;
+	font-size: 1.4rem;
+	margin-top: 12rem;
+	padding-bottom: 0.8rem;
+
+	p {
+		font-family: gv.$body-font-family;
+		font-size: 1.4rem;
+	}
+
+	ul a {
+		font-weight: bold;
+		font-family: gv.$heading-font-family;
+	}
+}
+
+.privacy li {
+	margin-inline: 1rem;
+}
+
+@media screen and (max-width : 1200px) {
+	footer {
+		height: 10rem;
+		flex-direction: column-reverse;
+
+	}
+}
+
+@media screen and (max-width : 450px) {
+	footer {
+		font-size: 1.2rem;
+		text-align: center;
+
+		p {
+			font-size: 1.2rem;
+		}
+	}
+}

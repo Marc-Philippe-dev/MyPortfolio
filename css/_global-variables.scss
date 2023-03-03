@@ -1,0 +1,84 @@
+/*======= COLOR & TYPOGRAPHY ======*/
+$primary-color: #FC3A79;
+$secondary-color : #FE572E;
+$brand-gradient-color: linear-gradient(90deg, $secondary-color , $primary-color);
+$error : #E63329;
+$black : HSL(334 10% 14% / 100%);
+$black-75 : HSL(334 10% 14% / 75%);
+$black-50 : HSL(334 10% 14% / 50%);
+$black-25 : HSL(334 10% 14% / 25%);
+$black-10 : HSL(334 10% 14% / 10%);
+$black-5 : HSL(334 10% 14% / 5%);
+
+$heading-font-family : 'Montserrat',
+sans-serif;
+$body-font-family : 'Lora',
+serif;
+
+$fs-xxl : 4.8rem;
+$fs-xl : 3.2rem;
+$fs-l : 2.4rem;
+$fs-m : 3.2rem;
+$fs-body: 1.8rem;
+
+// $fs-xxl : 6.4rem;
+// $fs-xl : 5.1rem;
+// $fs-l : 4.1rem;
+// $fs-m : 3.2rem;
+// $fs-body: 2.1rem;
+
+// @media screen and (max-width : 1200px) {
+// 	$fs-xxl : 5.5rem;
+// 	$fs-xl : 4.4rem;
+// 	$fs-l : 3.5rem;
+// 	$fs-m : 2.8rem;
+// 	$fs-body: 1.8rem;
+
+// 	h1 {
+// 		font-size: $fs-xxl;
+// 	}
+
+// 	h2 {
+// 		font-size: $fs-xl;
+// 	}
+
+// 	h3 {
+// 		font-size: $fs-l;
+// 	}
+
+// 	h4 {
+// 		font-size: $fs-m;
+// 	}
+
+// 	p {
+// 		font-size: $fs-body;
+// 	}
+// }
+
+// @media screen and (max-width : 600px) {
+// 	$fs-xxl : 4.9rem;
+// 	$fs-xl : 3.9rem;
+// 	$fs-l : 3.1rem;
+// 	$fs-m : 2.5rem;
+// 	$fs-body: 1.6rem;
+
+// 	h1 {
+// 		font-size: $fs-xxl;
+// 	}
+
+// 	h2 {
+// 		font-size: $fs-xl;
+// 	}
+
+// 	h3 {
+// 		font-size: $fs-l;
+// 	}
+
+// 	h4 {
+// 		font-size: $fs-m;
+// 	}
+
+// 	p {
+// 		font-size: $fs-body;
+// 	}
+// }

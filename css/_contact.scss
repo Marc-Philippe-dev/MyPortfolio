@@ -1,0 +1,68 @@
+@use 'global-variables' as gv;
+
+.accordion-section{
+	margin-inline : 4rem;
+}
+
+.accordion {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: #f7f7f7;
+}
+
+.accordion-item {
+	border-bottom: 1px solid #ddd;
+}
+
+.accordion-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	cursor: pointer;
+	background-color: #fff;
+}
+
+.accordion-header:hover {
+	background-color: #f7f7f7;
+}
+
+.accordion-header h3 {
+	margin: 0;
+	text-transform: none;
+}
+
+.accordion-icon {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-top: 2px solid #666;
+	border-right: 2px solid #666;
+	transform: rotate(45deg);
+}
+
+.accordion-icon.active {
+	transform: rotate(-145deg);
+	transition: max-height 0.3s ease-out;
+}
+
+.accordion-content {
+	padding: 1rem;
+	display: none;
+	background-color: #fff;
+
+	p{
+		text-align: start;
+		max-width: 80rem;
+		padding-inline: 2.4rem;
+	}
+}
+
+
+.accordion-content.active {
+	display: block;
+}
+
+
+
