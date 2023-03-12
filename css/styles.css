@@ -318,7 +318,8 @@ nav a {
 
 .img-fill {
   width: 100%;
-  object-fit: fill;
+  -o-object-fit: fill;
+     object-fit: fill;
   position: relative;
   top: 6.4rem;
 }
@@ -340,7 +341,8 @@ nav a {
 
 .card img {
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .card-content {
@@ -446,7 +448,8 @@ nav a {
   max-width: 60vw;
   max-height: 60vh;
   max-height: 60vh;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @keyframes carousel {
@@ -507,6 +510,13 @@ nav a {
   background: HSL(334 10% 14%/100%);
   color: white;
 }
+.setup .mobile {
+  display: none;
+  background: HSL(334 10% 14%/50%);
+}
+.setup .mobile button {
+  padding: 0.8rem 5.6rem;
+}
 .setup .hidden {
   display: none;
 }
@@ -554,6 +564,12 @@ nav a {
   }
 }
 @media screen and (max-width: 600px) {
+  .setup .button-container {
+    display: none;
+  }
+  .setup .mobile {
+    display: flex;
+  }
   .setup .grid-container {
     grid-template-columns: 1fr;
   }
@@ -725,6 +741,4 @@ footer ul a {
 		font-size: $fs-body;
 	}
 }
-*/
-
-/*# sourceMappingURL=styles.css.map */
+*//*# sourceMappingURL=styles.css.map */

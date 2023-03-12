@@ -111,6 +111,7 @@
 }
 
 .setup {
+
 	.button-container {
 		display: flex;
 		padding: 0.8rem;
@@ -127,6 +128,14 @@
 			color: white;
 		}
 
+	}
+
+	.mobile{
+		display: none;
+		background: gv.$black-50;
+		button{
+			padding: 0.8rem 5.6rem;
+		}
 	}
 
 	.hidden {
@@ -209,6 +218,12 @@
 
 
 	.setup {
+		.button-container{
+			display: none;
+		}
+		.mobile{
+			display: flex;
+		}
 		.grid-container {
 			grid-template-columns: 1fr;
 		}

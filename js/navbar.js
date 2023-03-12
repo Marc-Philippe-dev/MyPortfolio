@@ -4,7 +4,7 @@ class Navbar extends HTMLElement {
         super();
         this.innerHTML = `<header>
     <nav class="flex nav grow">
-        <img src="./assets/icons/logo_size1.jpg" alt="company logo" id="logo ">
+        <img src="./assets/icons/logo.svg" alt="company logo" id="logo ">
         <div class=" flex mobile-nav grow">
 
             <div class=" flex grow tablet-nav">
