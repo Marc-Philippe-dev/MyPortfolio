@@ -1,4 +1,4 @@
-@use 'global-variables' as gv ;
+@use 'global-variables' as gv;
 
 /*====== REMOVE STYLE ======*/
 nav a {
@@ -204,5 +204,9 @@ nav a {
 		gap: 2rem;
 	}
 
+	.mobile-nav.active {
+		height: 300px;
+		background-color: skyblue;
+	}
 
 }
