@@ -7,6 +7,10 @@ nav a {
 	margin-bottom: 3rem;
 }
 
+#logo {
+	width: 6.5rem;
+} 
+
 nav li {
 	list-style: none;
 }
@@ -15,6 +19,7 @@ nav li {
 header {
 	border-bottom: 2px solid gv.$black-10 ;
 }
+
 
 nav li>a {
 	padding: 0.5rem 1.5rem;
@@ -77,10 +82,7 @@ nav a {
 
 @media screen and (max-width : 1200px) {
 
-	#logo {
-		width: 60px;
-	}
-
+	 
 	.hidden {
 		display: inline;
 	}
