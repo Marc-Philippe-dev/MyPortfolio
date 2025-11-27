@@ -1,10 +1,12 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const navLinks = [
     { href: '/', label: 'Home' },
@@ -17,24 +19,35 @@ export default function Navbar() {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-xl font-bold text-slate-light hover:text-mint transition-colors">
+          <Link href="/" className="text-xl font-bold text-slate-light hover:text-mint transition-all hover:scale-110">
             MP
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <ul className="flex items-center gap-6">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-slate-muted hover:text-mint transition-colors relative group"
-                  >
-                    {link.label}
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-mint transition-all group-hover:w-full"></span>
-                  </Link>
-                </li>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className={`relative group transition-colors ${
+                        isActive
+                          ? 'text-mint'
+                          : 'text-slate-muted hover:text-mint'
+                      }`}
+                    >
+                      {link.label}
+                      <span
+                        className={`absolute bottom-0 left-0 h-0.5 bg-mint transition-all ${
+                          isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                        }`}
+                      ></span>
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
             <div className="h-6 w-px bg-slate-700"></div>
             <div className="flex items-center gap-4">
@@ -120,17 +133,24 @@ export default function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-slate-700">
             <ul className="flex flex-col gap-4 mt-4">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="text-slate-muted hover:text-mint transition-colors block"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`transition-colors block ${
+                        isActive
+                          ? 'text-mint font-semibold'
+                          : 'text-slate-muted hover:text-mint'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
             <div className="mt-4 pt-4 border-t border-slate-700">
               <a
