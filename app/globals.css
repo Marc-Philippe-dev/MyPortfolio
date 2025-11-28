@@ -54,10 +54,6 @@
   .text-highlight {
     @apply text-mint;
   }
-
-  .text-orange {
-    @apply text-orange;
-  }
 }
 
 @layer utilities {
@@ -127,5 +123,21 @@
   .stagger-3 { animation-delay: 0.3s; }
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
+
+  /* Breathing animation for social icons */
+  .breathe {
+    animation: breathe 3s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
 }
 

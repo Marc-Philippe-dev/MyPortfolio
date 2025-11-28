@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'nav': '1120px',
+      },
       colors: {
         'navy': {
           DEFAULT: '#0a192f',

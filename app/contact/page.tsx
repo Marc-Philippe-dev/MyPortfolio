@@ -3,6 +3,8 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
+import { useI18n } from '@/contexts/I18nContext'
+import { faqs as portfolioFaqs, personalInfo } from '@/lib/portfolioData'
 import { useState } from 'react'
 
 interface AccordionItemProps {
@@ -39,22 +41,13 @@ function AccordionItem({ question, answer, isOpen, onToggle }: AccordionItemProp
 }
 
 export default function Contact() {
+  const { t } = useI18n()
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
-  const faqs = [
-    {
-      question: 'What time zone are you in?',
-      answer: "I'm currently living in Tunisia. Tunisia is in the Central European Time (CET) time zone, which is one hour ahead of Coordinated Universal Time (UTC+1).",
-    },
-    {
-      question: 'How much do you charge for a data project?',
-      answer: "There is no fixed cost for a data project. The cost varies depending on several factors like: complexity of the data pipeline, data volume, timeframe, customization, functionality, maintenance and support, and the list can get long. So, if you have a project idea, just get in touch with me so that we can discuss and agree on a price.",
-    },
-    {
-      question: 'Do you charge by the hour?',
-      answer: "I do not charge by the hour. I prefer to eliminate the stress of counting the hours. Instead, I charge a flat fee per project, regardless of duration.",
-    },
-  ]
+  const faqs = portfolioFaqs.map((faq) => ({
+    question: t(`contact.faqs.${faq.id}.question`),
+    answer: t(`contact.faqs.${faq.id}.answer`),
+  }))
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
@@ -68,32 +61,31 @@ export default function Contact() {
         <section className="container mx-auto px-6 py-20">
           <div className="max-w-3xl mx-auto">
             <AnimateOnScroll direction="down" delay={0}>
-              <h1 className="section-title text-center mb-4">Get In Touch</h1>
+              <h1 className="section-title text-center mb-4">{t('contact.title')}</h1>
             </AnimateOnScroll>
             <AnimateOnScroll direction="up" delay={100}>
               <p className="section-subtitle text-center mb-12">
-                I'm currently available for freelance work. If you're looking for a data engineer or analyst
-                that likes to get stuff done, let's talk.
+                {t('contact.subtitle')}
               </p>
             </AnimateOnScroll>
 
-            <AnimateOnScroll direction="scale-in" delay={200}>
+            <AnimateOnScroll direction="fade" delay={200}>
               <div className="bg-slate rounded-lg p-12 border border-slate-700 mb-12 hover-lift">
                 <div className="flex flex-col items-center gap-6">
                   <a
-                    href="mailto:contact@marcodev.tech"
+                    href={`mailto:${personalInfo.email}`}
                     className="text-2xl font-semibold text-mint hover:text-mint/80 transition-all hover:scale-110"
                   >
-                    contact@marcodev.tech
+                    {personalInfo.email}
                   </a>
                   <a
-                    href="tel:+21658373582"
+                    href={`tel:${personalInfo.phone.replace(/\s/g, '')}`}
                     className="text-xl text-slate-muted hover:text-mint transition-all hover:scale-110"
                   >
-                    +216 58 373 582
+                    {personalInfo.phone}
                   </a>
-                  <a href="mailto:contact@marcodev.tech" className="btn-primary mt-4 hover-lift">
-                    Send an Email
+                  <a href={`mailto:${personalInfo.email}`} className="btn-primary mt-4 hover-lift">
+                    {t('contact.sendEmail')}
                   </a>
                 </div>
               </div>
@@ -103,7 +95,7 @@ export default function Contact() {
             <AnimateOnScroll direction="up" delay={300}>
               <div className="mb-12">
                 <h2 className="text-3xl font-bold text-slate-light mb-8 text-center">
-                  Frequently Asked <span className="text-mint">Questions</span>
+                  {t('contact.faq')}
                 </h2>
                 <div className="space-y-4">
                   {faqs.map((faq, index) => (

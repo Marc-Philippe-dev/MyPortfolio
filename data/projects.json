@@ -1,0 +1,24 @@
+[
+  {
+    "id": "etl",
+    "tags": ["Python", "Airflow", "PostgreSQL", "ETL"],
+    "category": "data-engineering",
+    "link": null,
+    "image": null
+  },
+  {
+    "id": "churn",
+    "tags": ["Python", "Pandas", "Scikit-learn", "Data Analysis"],
+    "category": "data-analysis",
+    "link": null,
+    "image": null
+  },
+  {
+    "id": "dashboard",
+    "tags": ["Tableau", "SQL", "Data Visualization"],
+    "category": "visualization",
+    "link": null,
+    "image": null
+  }
+]
+

@@ -1,0 +1,111 @@
+{
+  "data": [
+    {
+      "name": "Python",
+      "category": "Programming"
+    },
+    {
+      "name": "SQL",
+      "category": "Database"
+    },
+    {
+      "name": "Apache Airflow",
+      "category": "Orchestration"
+    },
+    {
+      "name": "Apache Spark",
+      "category": "Big Data"
+    },
+    {
+      "name": "PostgreSQL",
+      "category": "Database"
+    },
+    {
+      "name": "MongoDB",
+      "category": "Database"
+    },
+    {
+      "name": "Docker",
+      "category": "DevOps"
+    },
+    {
+      "name": "Kubernetes",
+      "category": "DevOps"
+    },
+    {
+      "name": "AWS",
+      "category": "Cloud"
+    },
+    {
+      "name": "Azure",
+      "category": "Cloud"
+    },
+    {
+      "name": "Pandas",
+      "category": "Data Processing"
+    },
+    {
+      "name": "NumPy",
+      "category": "Data Processing"
+    },
+    {
+      "name": "Apache Kafka",
+      "category": "Streaming"
+    },
+    {
+      "name": "dbt",
+      "category": "Transformation"
+    },
+    {
+      "name": "Snowflake",
+      "category": "Data Warehouse"
+    },
+    {
+      "name": "Tableau",
+      "category": "Visualization"
+    },
+    {
+      "name": "Power BI",
+      "category": "Visualization"
+    },
+    {
+      "name": "Jupyter",
+      "category": "Notebooks"
+    }
+  ],
+  "tools": [
+    {
+      "name": "Git",
+      "category": "Version Control"
+    },
+    {
+      "name": "GitHub",
+      "category": "Version Control"
+    },
+    {
+      "name": "VS Code",
+      "category": "IDE"
+    },
+    {
+      "name": "PyCharm",
+      "category": "IDE"
+    },
+    {
+      "name": "DBeaver",
+      "category": "Database Tools"
+    },
+    {
+      "name": "Postman",
+      "category": "API Testing"
+    },
+    {
+      "name": "Linux",
+      "category": "OS"
+    },
+    {
+      "name": "Bash",
+      "category": "Shell"
+    }
+  ]
+}
+

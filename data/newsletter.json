@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "title": "Stay Updated",
+  "description": "Get the latest insights on data engineering and analytics",
+  "placeholder": "Enter your email",
+  "buttonText": "Subscribe",
+  "successMessage": "Thanks for subscribing!",
+  "errorMessage": "Something went wrong. Please try again.",
+  "invalidEmail": "Please enter a valid email address"
+}
+

@@ -67,5 +67,8 @@ package-lock.json
 # .env.test.local
 .env.test.local
 
+# Subscribers data (contains personal information)
+data/subscribers.json
+
 # .env.development.local.example
 .env.development.local.example

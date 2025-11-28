@@ -55,7 +55,7 @@ export default function AnimateOnScroll({
   return (
     <div
       ref={ref}
-      className={`${directionClasses[direction]} ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      className={`${directionClasses[direction]} ${isVisible ? 'opacity-100' : 'opacity-0'} ${className || ''}`}
       style={{
         transition: `opacity 0.6s ease-out ${delay}ms, transform 0.6s ease-out ${delay}ms`,
       }}

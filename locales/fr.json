@@ -1,0 +1,136 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "home": {
+    "greeting": "Salut, je m'appelle",
+    "name": "Marc Philippe.",
+    "title": "Je construis des solutions de données.",
+    "description": "Je suis ingénieur de données et analyste spécialisé dans la construction de pipelines de données évolutifs, la transformation de données brutes en informations exploitables, et la création de solutions basées sur les données qui aident les entreprises à prendre de meilleures décisions.",
+    "viewWork": "Voir mon travail",
+    "getInTouch": "Me contacter",
+    "featuredProjects": "Projets en vedette",
+    "projectsSubtitle": "Une sélection de mes récents travaux en ingénierie de données et analyse",
+    "viewAllProjects": "Voir tous les projets",
+    "availableForWork": "Je suis actuellement disponible pour des missions freelance",
+    "availableDescription": "Si vous cherchez un ingénieur de données ou un analyste qui aime faire avancer les choses, discutons-en.",
+    "gotProject": "Vous avez un projet en tête ? Discutons-en !"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "intro": "Je suis Marc Philippe GNANCADJA, ingénieur de données et analyste passionné par la transformation des données en informations exploitables.",
+    "bio1": "Je suis né à Cotonou, au Bénin, et j'ai développé un intérêt précoce pour l'informatique qui s'est transformé en passion pendant le lycée. Après avoir étudié l'ingénierie informatique à l'université en Tunisie, j'ai découvert ma vocation dans l'industrie des données.",
+    "bio2": "Actuellement, j'aide les entreprises du monde entier en construisant des pipelines de données robustes, en analysant des ensembles de données complexes, et en créant des solutions basées sur les données qui favorisent la prise de décision.",
+    "bio3": "En ce moment, je suis basé en France, dans la région d'Île-de-France.",
+    "whatIDo": "Ce que je fais",
+    "services": {
+      "pipeline": {
+        "title": "Développement de pipelines de données",
+        "description": "Concevoir et construire des pipelines ETL/ELT évolutifs pour traiter de grands volumes de données de manière efficace et fiable."
+      },
+      "analysis": {
+        "title": "Analyse de données et insights",
+        "description": "Transformer les données brutes en informations exploitables en utilisant l'analyse statistique et les techniques de data mining."
+      },
+      "visualization": {
+        "title": "Visualisation de données",
+        "description": "Créer des tableaux de bord interactifs et des visualisations qui rendent les données complexes faciles à comprendre."
+      },
+      "cloud": {
+        "title": "Solutions de données cloud",
+        "description": "Construire et déployer des solutions de données sur des plateformes cloud comme AWS et Azure pour la scalabilité et la fiabilité."
+      }
+    },
+    "skills": "Compétences et outils",
+    "dataTab": "Ingénierie de données et analyse",
+    "toolsTab": "Outils de développement",
+    "availableForWork": "Je suis actuellement disponible pour des missions freelance",
+    "availableDescription": "Si vous cherchez un ingénieur de données ou un analyste qui aime faire avancer les choses, discutons-en.",
+    "gotProject": "Vous avez un projet en tête ? Discutons-en !"
+  },
+  "contact": {
+    "title": "Me contacter",
+    "subtitle": "Je suis actuellement disponible pour des missions freelance. Si vous cherchez un ingénieur de données ou un analyste qui aime faire avancer les choses, discutons-en.",
+    "sendEmail": "Envoyer un email",
+    "faq": "Questions fréquemment posées",
+    "faqs": {
+      "timezone": {
+        "question": "Dans quel fuseau horaire êtes-vous ?",
+        "answer": "Je vis actuellement en France, dans la région d'Île-de-France. La France est dans le fuseau horaire de l'Europe centrale (CET), qui est une heure en avance sur le temps universel coordonné (UTC+1)."
+      },
+      "pricing": {
+        "question": "Combien facturez-vous pour un projet de données ?",
+        "answer": "Il n'y a pas de coût fixe pour un projet de données. Le coût varie en fonction de plusieurs facteurs comme : la complexité du pipeline de données, le volume de données, le délai, la personnalisation, la fonctionnalité, la maintenance et le support, et la liste peut s'allonger. Donc, si vous avez une idée de projet, contactez-moi simplement pour que nous puissions discuter et convenir d'un prix."
+      },
+      "hourly": {
+        "question": "Facturez-vous à l'heure ?",
+        "answer": "Je ne facture pas à l'heure. Je préfère éliminer le stress du comptage des heures. Au lieu de cela, je facture un tarif fixe par projet, quelle que soit la durée."
+      }
+    }
+  },
+  "projects": {
+    "etl": {
+      "title": "Pipeline ETL pour données de vente",
+      "description": "Construit un pipeline ETL évolutif en utilisant Python et Apache Airflow pour traiter et transformer les données de vente de plusieurs sources en un entrepôt de données."
+    },
+    "churn": {
+      "title": "Analyse de l'attrition client",
+      "description": "Analysé les modèles de comportement des clients pour prédire l'attrition en utilisant des modèles d'apprentissage automatique, résultant en une réduction de 15% de l'attrition client."
+    },
+    "dashboard": {
+      "title": "Tableau de bord en temps réel",
+      "description": "Créé un tableau de bord interactif en utilisant Tableau pour visualiser les métriques et KPI commerciaux en temps réel pour la prise de décision exécutive."
+    }
+  },
+  "common": {
+    "email": "contact@marcodev.tech",
+    "phone": "+216 58 373 582"
+  },
+  "newsletter": {
+    "title": "Restez informé",
+    "description": "Recevez les dernières actualités sur l'ingénierie de données et l'analyse",
+    "pageTitle": "Abonnez-vous à notre newsletter",
+    "pageDescription": "Rejoignez notre communauté et restez informé des dernières tendances, insights et meilleures pratiques en ingénierie de données et analyse.",
+    "whatYoullGet": "Ce que vous obtiendrez",
+    "benefits": {
+      "insights": {
+        "title": "Insights de données",
+        "description": "Dernières tendances et insights en ingénierie de données et analyse"
+      },
+      "practices": {
+        "title": "Meilleures pratiques",
+        "description": "Astuces, conseils et meilleures pratiques du monde des données"
+      },
+      "exclusive": {
+        "title": "Contenu exclusif",
+        "description": "Articles et ressources exclusifs non disponibles ailleurs"
+      }
+    },
+    "placeholder": "Entrez votre email",
+    "buttonText": "S'abonner",
+    "successMessage": "Merci de vous être abonné !",
+    "errorMessage": "Une erreur s'est produite. Veuillez réessayer.",
+    "invalidEmail": "Veuillez entrer une adresse email valide",
+    "subscribing": "Abonnement en cours...",
+    "alreadySubscribed": "Cet email est déjà abonné",
+    "confirmed": "Votre abonnement a été confirmé ! Bienvenue !",
+    "unsubscribed": "Vous avez été désabonné avec succès",
+    "unsubscribeConfirmTitle": "Confirmer la désinscription",
+    "unsubscribeConfirmMessage": "Êtes-vous sûr de vouloir vous désabonner de notre newsletter ? Vous ne recevrez plus de mises à jour sur l'ingénierie de données et l'analyse.",
+    "unsubscribeConfirmButton": "Oui, me désabonner",
+    "cancelUnsubscribe": "Annuler",
+    "unsubscribing": "Désabonnement en cours...",
+    "unsubscribeSuccessMessage": "Vous avez été désabonné avec succès. Nous sommes désolés de vous voir partir !",
+    "unsubscribeError": "Échec de la désinscription. Veuillez réessayer ou contacter le support.",
+    "errorTitle": "Erreur",
+    "redirecting": "Redirection vers la page d'accueil...",
+    "backToHome": "Retour à l'accueil",
+    "invalidToken": "Lien invalide ou expiré. Veuillez demander un nouveau lien d'abonnement.",
+    "alreadyConfirmed": "Cet abonnement a déjà été confirmé.",
+    "alreadyUnsubscribed": "Vous êtes déjà désabonné de notre newsletter.",
+    "tokenExpired": "Ce lien a expiré. Veuillez vous réabonner pour recevoir un nouvel email de confirmation."
+  }
+}
+

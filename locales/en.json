@@ -1,0 +1,136 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "greeting": "Hi, my name is",
+    "name": "Marc Philippe.",
+    "title": "I build data solutions.",
+    "description": "I'm a data engineer and analyst specializing in building scalable data pipelines, transforming raw data into actionable insights, and creating data-driven solutions that help businesses make better decisions.",
+    "viewWork": "View My Work",
+    "getInTouch": "Get In Touch",
+    "featuredProjects": "Featured Projects",
+    "projectsSubtitle": "A selection of my recent work in data engineering and analytics",
+    "viewAllProjects": "View All Projects",
+    "availableForWork": "I'm currently available for freelance work",
+    "availableDescription": "If you're looking for a data engineer or analyst that likes to get stuff done, let's talk.",
+    "gotProject": "Got a project in mind? Let's talk!"
+  },
+  "about": {
+    "title": "About Me",
+    "intro": "I'm Marc Philippe GNANCADJA, a data engineer and analyst with a passion for turning data into actionable insights.",
+    "bio1": "I was born in Cotonou, Benin, and developed an early interest in computers that grew into a passion during high school. After studying Computer Science Engineering at university in Tunisia, I discovered my calling in the data industry.",
+    "bio2": "Currently, I help businesses around the world by building robust data pipelines, analyzing complex datasets, and creating data-driven solutions that drive decision-making.",
+    "bio3": "Right now I'm based in France, Ile-de-France region.",
+    "whatIDo": "What I Do",
+    "services": {
+      "pipeline": {
+        "title": "Data Pipeline Development",
+        "description": "Design and build scalable ETL/ELT pipelines to process large volumes of data efficiently and reliably."
+      },
+      "analysis": {
+        "title": "Data Analysis & Insights",
+        "description": "Transform raw data into actionable insights using statistical analysis and data mining techniques."
+      },
+      "visualization": {
+        "title": "Data Visualization",
+        "description": "Create interactive dashboards and visualizations that make complex data easy to understand."
+      },
+      "cloud": {
+        "title": "Cloud Data Solutions",
+        "description": "Build and deploy data solutions on cloud platforms like AWS and Azure for scalability and reliability."
+      }
+    },
+    "skills": "Skills & Tools",
+    "dataTab": "Data Engineering & Analytics",
+    "toolsTab": "Development Tools",
+    "availableForWork": "I'm currently available for freelance work",
+    "availableDescription": "If you're looking for a data engineer or analyst that likes to get stuff done, let's talk.",
+    "gotProject": "Got a project in mind? Let's talk!"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "I'm currently available for freelance work. If you're looking for a data engineer or analyst that likes to get stuff done, let's talk.",
+    "sendEmail": "Send an Email",
+    "faq": "Frequently Asked Questions",
+    "faqs": {
+      "timezone": {
+        "question": "What time zone are you in?",
+        "answer": "I'm currently living in France, in the Ile-de-France region. France is in the Central European Time (CET) time zone, which is one hour ahead of Coordinated Universal Time (UTC+1)."
+      },
+      "pricing": {
+        "question": "How much do you charge for a data project?",
+        "answer": "There is no fixed cost for a data project. The cost varies depending on several factors like: complexity of the data pipeline, data volume, timeframe, customization, functionality, maintenance and support, and the list can get long. So, if you have a project idea, just get in touch with me so that we can discuss and agree on a price."
+      },
+      "hourly": {
+        "question": "Do you charge by the hour?",
+        "answer": "I do not charge by the hour. I prefer to eliminate the stress of counting the hours. Instead, I charge a flat fee per project, regardless of duration."
+      }
+    }
+  },
+  "projects": {
+    "etl": {
+      "title": "ETL Pipeline for Sales Data",
+      "description": "Built a scalable ETL pipeline using Python and Apache Airflow to process and transform sales data from multiple sources into a data warehouse."
+    },
+    "churn": {
+      "title": "Customer Churn Analysis",
+      "description": "Analyzed customer behavior patterns to predict churn using machine learning models, resulting in 15% reduction in customer attrition."
+    },
+    "dashboard": {
+      "title": "Real-time Dashboard",
+      "description": "Created an interactive dashboard using Tableau to visualize real-time business metrics and KPIs for executive decision-making."
+    }
+  },
+  "common": {
+    "email": "contact@marcodev.tech",
+    "phone": "+216 58 373 582"
+  },
+  "newsletter": {
+    "title": "Stay Updated",
+    "description": "Get the latest insights on data engineering and analytics",
+    "pageTitle": "Subscribe to Our Newsletter",
+    "pageDescription": "Join our community and stay informed about the latest trends, insights, and best practices in data engineering and analytics.",
+    "whatYoullGet": "What You'll Get",
+    "benefits": {
+      "insights": {
+        "title": "Data Insights",
+        "description": "Latest trends and insights in data engineering and analytics"
+      },
+      "practices": {
+        "title": "Best Practices",
+        "description": "Tips, tricks, and best practices from the data world"
+      },
+      "exclusive": {
+        "title": "Exclusive Content",
+        "description": "Exclusive articles and resources not available elsewhere"
+      }
+    },
+    "placeholder": "Enter your email",
+    "buttonText": "Subscribe",
+    "successMessage": "Thanks for subscribing!",
+    "errorMessage": "Something went wrong. Please try again.",
+    "invalidEmail": "Please enter a valid email address",
+    "subscribing": "Subscribing...",
+    "alreadySubscribed": "This email is already subscribed",
+    "confirmed": "Your subscription has been confirmed! Welcome!",
+    "unsubscribed": "You have been unsubscribed successfully",
+    "unsubscribeConfirmTitle": "Confirm Unsubscription",
+    "unsubscribeConfirmMessage": "Are you sure you want to unsubscribe from our newsletter? You will no longer receive updates about data engineering and analytics.",
+    "unsubscribeConfirmButton": "Yes, Unsubscribe",
+    "cancelUnsubscribe": "Cancel",
+    "unsubscribing": "Unsubscribing...",
+    "unsubscribeSuccessMessage": "You have been successfully unsubscribed. We're sorry to see you go!",
+    "unsubscribeError": "Failed to unsubscribe. Please try again or contact support.",
+    "errorTitle": "Error",
+    "redirecting": "Redirecting to home page...",
+    "backToHome": "Back to Home",
+    "invalidToken": "Invalid or expired link. Please request a new subscription link.",
+    "alreadyConfirmed": "This subscription has already been confirmed.",
+    "alreadyUnsubscribed": "You are already unsubscribed from our newsletter.",
+    "tokenExpired": "This link has expired. Please subscribe again to receive a new confirmation email."
+  }
+}
+

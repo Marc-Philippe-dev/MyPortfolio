@@ -9,7 +9,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ title, description, image, link, tags, category }: ProjectCardProps) {
   return (
-    <div className="card group cursor-pointer hover-lift">
+    <div className="card group cursor-pointer hover-lift h-full flex flex-col">
       {image && (
         <div className="mb-4 overflow-hidden rounded-lg">
           <div className="aspect-video bg-slate-700 group-hover:scale-105 transition-transform duration-300">
@@ -31,7 +31,7 @@ export default function ProjectCard({ title, description, image, link, tags, cat
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-mint hover:text-mint/80 transition-all ml-2 transform hover:scale-110"
+            className="text-mint hover:text-mint/80 transition-all ml-2 transform hover:scale-110 flex-shrink-0"
             onClick={(e) => e.stopPropagation()}
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -40,9 +40,9 @@ export default function ProjectCard({ title, description, image, link, tags, cat
           </a>
         )}
       </div>
-      <p className="text-slate-muted mb-4">{description}</p>
+      <p className="text-slate-muted mb-4 flex-grow">{description}</p>
       {tags && tags.length > 0 && (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mt-auto">
           {tags.map((tag, index) => (
             <span
               key={index}

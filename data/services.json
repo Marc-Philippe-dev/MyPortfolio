@@ -1,0 +1,19 @@
+[
+  {
+    "id": "pipeline",
+    "icon": "📊"
+  },
+  {
+    "id": "analysis",
+    "icon": "🔍"
+  },
+  {
+    "id": "visualization",
+    "icon": "📈"
+  },
+  {
+    "id": "cloud",
+    "icon": "☁️"
+  }
+]
+
