@@ -50,9 +50,15 @@ export async function GET(request: NextRequest) {
           </div>
         `,
       })
+      const emailId =
+        emailResult && typeof emailResult === 'object' && 'id' in emailResult
+          ? (emailResult as { id?: string }).id
+          : undefined
+
       results.emailTest = {
         success: true,
-        emailId: emailResult.id,
+        emailId,
+        rawResult: emailResult,
       }
     } catch (emailError: any) {
       results.emailTest = {
@@ -69,10 +75,16 @@ export async function GET(request: NextRequest) {
           audienceId: audienceId,
           email: testEmail,
         })
+        const contactId =
+          contactResult && typeof contactResult === 'object' && 'id' in contactResult
+            ? (contactResult as { id?: string }).id
+            : undefined
+
         results.contactTest = {
           success: true,
-          contactId: contactResult.id,
+          contactId,
           message: 'Contact added successfully',
+          rawResult: contactResult,
         }
       } catch (contactError: any) {
         if (contactError?.message?.includes('already exists') || contactError?.statusCode === 422) {
