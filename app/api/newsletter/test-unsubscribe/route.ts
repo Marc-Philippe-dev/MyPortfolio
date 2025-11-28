@@ -36,34 +36,19 @@ export async function GET(request: NextRequest) {
     try {
       console.log('Step 1: Searching for contact...')
       let contactFound = null
-      let page = 1
-      const limit = 100
 
-      while (!contactFound) {
-        const contactsResponse = await resend.contacts.list({
-          audienceId: audienceId,
-          page: page,
-          limit: limit,
+      const contactsResponse = await resend.contacts.list({ audienceId })
+      const contacts = Array.isArray(contactsResponse?.data) ? contactsResponse.data : []
+      const contact = contacts.find((c: any) => c?.email?.toLowerCase() === testEmail.toLowerCase())
+
+      if (contact) {
+        contactFound = contact
+        results.steps.push({
+          step: 'Find Contact',
+          success: true,
+          contactId: contact.id,
+          contactEmail: contact.email,
         })
-
-        const contacts = contactsResponse.data || []
-        const contact = contacts.find(c => c.email?.toLowerCase() === testEmail.toLowerCase())
-
-        if (contact) {
-          contactFound = contact
-          results.steps.push({
-            step: 'Find Contact',
-            success: true,
-            contactId: contact.id,
-            contactEmail: contact.email,
-          })
-          break
-        }
-
-        if (contacts.length === 0 || contacts.length < limit) {
-          break
-        }
-        page++
       }
 
       if (!contactFound) {

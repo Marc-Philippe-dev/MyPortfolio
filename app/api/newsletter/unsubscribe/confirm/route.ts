@@ -42,149 +42,50 @@ export async function POST(request: NextRequest) {
     const audienceId = process.env.RESEND_AUDIENCE_ID
     if (audienceId) {
       try {
-        console.log(`🔍 Attempting to remove ${unsubscribed.email} from Resend Contacts (audience: ${audienceId})...`)
-        
-        // Get the contact ID by email (case-insensitive search)
-        // Note: Resend Contacts API requires pagination for large audiences
-        let contactFound = false
-        let page = 1
-        const limit = 100 // Resend default limit
-        let totalContactsChecked = 0
-        
-        while (!contactFound && page <= 10) { // Limit to 10 pages to avoid infinite loops
-          console.log(`   Checking page ${page}...`)
-          const contactsResponse = await resend.contacts.list({ 
-            audienceId: audienceId,
-            page: page,
-            limit: limit,
-          })
-          
-          // Debug: Log the response structure
-          console.log(`   Response structure:`, {
-            hasData: !!contactsResponse?.data,
-            dataType: typeof contactsResponse?.data,
-            isArray: Array.isArray(contactsResponse?.data),
-            responseKeys: contactsResponse ? Object.keys(contactsResponse) : [],
-          })
-          
-          // Handle different possible response structures from Resend API
-          let contacts: any[] = []
-          
-          // Check the actual structure
-          if (contactsResponse && typeof contactsResponse === 'object') {
-            if (Array.isArray(contactsResponse.data)) {
-              contacts = contactsResponse.data
-            } else if (contactsResponse.data && typeof contactsResponse.data === 'object') {
-              // Check if it's a nested structure
-              if (Array.isArray((contactsResponse.data as any).data)) {
-                contacts = (contactsResponse.data as any).data
-              } else if (Array.isArray((contactsResponse.data as any).contacts)) {
-                contacts = (contactsResponse.data as any).contacts
-              } else {
-                // Try to access directly if it's the response itself
-                console.log(`   Trying to parse response data structure...`)
-                console.log(`   contactsResponse.data keys:`, contactsResponse.data ? Object.keys(contactsResponse.data) : [])
-              }
-            }
-          }
-          
-          // Ensure contacts is an array
-          if (!Array.isArray(contacts)) {
-            console.error(`   ❌ contacts is not an array. Type: ${typeof contacts}, Value:`, contacts)
-            console.error(`   Full response:`, JSON.stringify(contactsResponse, null, 2))
-            break
-          }
-          
-          totalContactsChecked += contacts.length
-          
-          console.log(`   Found ${contacts.length} contacts on page ${page} (total checked: ${totalContactsChecked})`)
-          
-          if (contacts.length === 0) {
-            // No more contacts to check
-            console.log(`   No more contacts to check.`)
-            break
-          }
-          
-          // Find contact by email (case-insensitive)
-          const contact = contacts.find((c: any) => {
-            const contactEmail = c?.email?.toLowerCase() || ''
-            const searchEmail = unsubscribed.email.toLowerCase()
-            return contactEmail === searchEmail
-          })
-          
-          if (contact && contact.id) {
-            console.log(`   ✅ Found contact: ID=${contact.id}, Email=${contact.email}`)
-            
-            // Try to update contact to mark as unsubscribed (preferred method)
+        console.log(`🔍 Attempting to mark ${unsubscribed.email} as unsubscribed in Resend Contacts (audience: ${audienceId})...`)
+        const contactsResponse = await resend.contacts.list({ audienceId })
+        const contacts = Array.isArray(contactsResponse?.data) ? contactsResponse.data : []
+        console.log(`   Retrieved ${contacts.length} contacts from Resend audience`)
+
+        const contact = contacts.find(
+          (c: any) => c?.email?.toLowerCase() === unsubscribed.email.toLowerCase()
+        )
+
+        if (contact && contact.id) {
+          try {
+            const updateResult = await resend.contacts.update({
+              audienceId,
+              id: contact.id,
+              unsubscribed: true,
+            })
+            console.log(`✅ Marked ${unsubscribed.email} as unsubscribed in Resend`, {
+              contactId: contact.id,
+              result: updateResult,
+            })
+          } catch (updateError: any) {
+            console.log(`   ⚠️ Update failed, trying to remove contact instead...`)
             try {
-              const updateResult = await resend.contacts.update({
-                audienceId: audienceId,
+              const removeResult = await resend.contacts.remove({
+                audienceId,
                 id: contact.id,
-                unsubscribed: true,
               })
-              console.log(`✅ Successfully marked ${unsubscribed.email} as unsubscribed in Resend Contacts`, {
+              console.log(`✅ Removed ${unsubscribed.email} from Resend Contacts`, {
+                contactId: contact.id,
+                result: removeResult,
+              })
+            } catch (removeError: any) {
+              console.error('❌ Both update and remove failed:', {
+                updateError: updateError?.message,
+                removeError: removeError?.message,
                 contactId: contact.id,
                 email: unsubscribed.email,
-                audienceId: audienceId,
-                result: updateResult,
+                audienceId,
               })
-              contactFound = true
-              break
-            } catch (updateError: any) {
-              // If update fails, try to remove the contact
-              console.log(`   ⚠️ Update failed, trying to remove contact instead...`)
-              try {
-                const removeResult = await resend.contacts.remove({
-                  audienceId: audienceId,
-                  id: contact.id,
-                })
-                console.log(`✅ Successfully removed ${unsubscribed.email} from Resend Contacts audience`, {
-                  contactId: contact.id,
-                  email: unsubscribed.email,
-                  audienceId: audienceId,
-                  result: removeResult,
-                })
-                contactFound = true
-                break
-              } catch (removeError: any) {
-                // If both fail, log detailed error
-                console.error('❌ Both update and remove failed:', {
-                  updateError: {
-                    message: updateError?.message,
-                    statusCode: updateError?.statusCode,
-                  },
-                  removeError: {
-                    message: removeError?.message,
-                    statusCode: removeError?.statusCode,
-                  },
-                  contactId: contact.id,
-                  email: unsubscribed.email,
-                  audienceId: audienceId,
-                })
-                // Don't throw - we still want to mark as unsubscribed locally
-                contactFound = true // Mark as found even if update/removal failed
-                break
-              }
             }
           }
-          
-          // Check if there are more pages
-          if (contacts.length < limit) {
-            // Last page
-            console.log(`   Last page reached.`)
-            break
-          }
-          
-          page++
-        }
-        
-        if (!contactFound) {
-          console.log(`ℹ️ Contact ${unsubscribed.email} not found in Resend Contacts audience ${audienceId}`)
-          console.log(`   Total contacts checked: ${totalContactsChecked}`)
-          console.log(`   This might be normal if:`)
-          console.log(`   - The contact was never added to Resend Contacts`)
-          console.log(`   - The contact was already removed`)
-          console.log(`   - RESEND_AUDIENCE_ID points to a different audience`)
+        } else {
+          console.log(`ℹ️ Contact ${unsubscribed.email} not found in Resend audience ${audienceId}`)
+          console.log(`   Contacts sample:`, contacts.slice(0, 3))
         }
       } catch (contactError: any) {
         // Log error but don't fail the unsubscribe
