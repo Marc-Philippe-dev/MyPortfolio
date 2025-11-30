@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Verify token exists and subscriber is confirmed
-    const subscriber = getSubscriberByToken(token)
+    const subscriber = await getSubscriberByToken(token)
     if (!subscriber || subscriber.status !== 'confirmed') {
       return NextResponse.json(
         { error: 'Invalid or expired token' },
@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Unsubscribe the user
-    const unsubscribed = unsubscribeByToken(token)
+    const unsubscribed = await unsubscribeByToken(token)
 
     if (!unsubscribed) {
       return NextResponse.json(

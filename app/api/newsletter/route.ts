@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if email is already confirmed
-    const existing = getSubscriberByEmail(email)
+    const existing = await getSubscriberByEmail(email)
     if (existing && existing.status === 'confirmed') {
       return NextResponse.json(
         { error: 'Email already subscribed' },
@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create subscriber with confirmed status (direct subscription, no double opt-in)
-    const subscriber = createSubscriber(email)
+    const subscriber = await createSubscriber(email)
 
     // Add to Resend Contacts if audience ID is configured
     const audienceId = process.env.RESEND_AUDIENCE_ID

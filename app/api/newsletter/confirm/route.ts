@@ -18,13 +18,13 @@ export async function GET(request: NextRequest) {
     }
 
     // Confirm the subscriber
-    const subscriber = confirmSubscriber(token)
+    const subscriber = await confirmSubscriber(token)
 
     if (!subscriber) {
       console.error('Invalid confirmation token:', token.substring(0, 10) + '...')
       // Check if token exists but subscriber is already confirmed or unsubscribed
       const { loadSubscribers } = await import('@/lib/subscribers')
-      const subscribers = loadSubscribers()
+      const subscribers = await loadSubscribers()
       const existingSubscriber = subscribers.find(s => s.confirmToken === token)
 
       if (existingSubscriber) {

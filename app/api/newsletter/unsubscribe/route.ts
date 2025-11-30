@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
 
     // Verify token exists before redirecting
     const { getSubscriberByToken } = await import('@/lib/subscribers')
-    const subscriber = getSubscriberByToken(token)
+    const subscriber = await getSubscriberByToken(token)
 
     if (!subscriber) {
       console.error('Invalid unsubscribe token:', token.substring(0, 10) + '...')

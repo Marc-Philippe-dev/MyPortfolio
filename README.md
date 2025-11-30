@@ -19,6 +19,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - Node.js 18+ installed
 - npm or yarn package manager
 - Resend account (for newsletter functionality) - [Sign up here](https://resend.com)
+- Vercel account (for KV database) - [Sign up here](https://vercel.com)
 
 ### Installation
 
@@ -39,13 +40,27 @@ npm install
    - Get your API key from [Resend Dashboard](https://resend.com/api-keys)
    - Verify your domain in Resend (or use `onboarding@resend.dev` for testing)
    - **For Contacts API**: Create an audience in [Resend Contacts](https://resend.com/audiences) and add the audience ID to `RESEND_AUDIENCE_ID`
+   
+3. Set up Vercel KV (for subscriber storage):
+   - **For local development**: The app will use in-memory storage (data is lost on restart). This is fine for testing.
+   - **For production (Vercel)**:
+     1. Go to your [Vercel Dashboard](https://vercel.com/dashboard)
+     2. Select your project
+     3. Go to Storage → Create Database → KV
+     4. Create a new KV database
+     5. Vercel will automatically add `KV_REST_API_URL` and `KV_REST_API_TOKEN` to your environment variables
+   - **For production (other platforms)**: You'll need to set these manually:
+     ```env
+     KV_REST_API_URL=https://your-kv-instance.upstash.io
+     KV_REST_API_TOKEN=your_kv_token_here
+     ```
 
-3. Run the development server:
+4. Run the development server:
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
 ### Build for Production
 
@@ -81,8 +96,7 @@ MyPortfolio/
 │   ├── skills.json       # Skills and tools
 │   ├── services.json     # Services offered
 │   ├── faqs.json         # FAQ structure
-│   ├── newsletter.json   # Newsletter configuration
-│   └── subscribers.json  # Subscriber data (gitignored, auto-generated)
+│   └── newsletter.json   # Newsletter configuration
 ├── locales/              # Translation files
 │   ├── en.json           # English translations
 │   └── fr.json           # French translations
@@ -102,6 +116,7 @@ MyPortfolio/
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Email Service**: Resend (for newsletter)
+- **Database**: Vercel KV (Redis) for subscriber storage
 - **Internationalization**: Custom i18n with English & French support
 - **Deployment**: Vercel (recommended)
 
@@ -144,9 +159,10 @@ The newsletter uses a **single opt-in flow** for a simplified user experience:
 - Base URL: Set `NEXT_PUBLIC_BASE_URL` in production (or `VERCEL_URL` is auto-detected)
 
 **Subscriber Storage:**
-- Subscribers are stored in `data/subscribers.json` (automatically created)
-- This file is gitignored to protect subscriber privacy
-- For production, consider migrating to a database (PostgreSQL, MongoDB, etc.)
+- Subscribers are stored in **Vercel KV** (Redis database)
+- In local development, the app uses in-memory storage (data is lost on restart)
+- In production on Vercel, KV is automatically configured
+- For other platforms, you'll need to set up a Redis-compatible database and configure `KV_REST_API_URL` and `KV_REST_API_TOKEN`
 
 ### Troubleshooting Newsletter
 
