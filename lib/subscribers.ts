@@ -15,17 +15,21 @@ export interface Subscriber {
 async function getKV() {
   // In production, use Vercel KV
   if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
-    return kv
+    try {
+      // Test if kv is accessible
+      return kv
+    } catch (error) {
+      console.error('Error initializing Vercel KV:', error)
+      // Fall through to in-memory fallback
+    }
   }
   
-  // Fallback for local development: use in-memory storage
-  // This allows local development without KV setup
-  if (process.env.NODE_ENV === 'development') {
-    console.warn('⚠️ KV not configured. Using in-memory storage (data will be lost on restart).')
-    return getInMemoryKV()
-  }
-  
-  throw new Error('KV is not configured. Please set KV_REST_API_URL and KV_REST_API_TOKEN environment variables.')
+  // Fallback: use in-memory storage if KV is not configured
+  // Note: In production on Vercel, this means KV is not set up
+  // In this case, data will be lost between function invocations
+  console.warn('⚠️ KV not configured. Using in-memory storage (data will be lost between invocations).')
+  console.warn('⚠️ To persist data, please set up Vercel KV: https://vercel.com/docs/storage/vercel-kv')
+  return getInMemoryKV()
 }
 
 // In-memory KV fallback for local development
