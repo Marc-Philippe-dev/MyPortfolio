@@ -4,6 +4,9 @@ import { createSubscriber, getSubscriberByEmail } from '@/lib/subscribers'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+// Force dynamic rendering since we use request.json() and external APIs
+export const dynamic = 'force-dynamic'
+
 export async function POST(request: NextRequest) {
   try {
     const { email } = await request.json()

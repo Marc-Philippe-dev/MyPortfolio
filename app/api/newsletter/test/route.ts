@@ -3,6 +3,9 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+// Force dynamic rendering since we use searchParams
+export const dynamic = 'force-dynamic'
+
 /**
  * Test endpoint to verify Resend configuration
  * GET /api/newsletter/test?email=test@example.com

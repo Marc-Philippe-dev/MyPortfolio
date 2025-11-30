@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// Force dynamic rendering since we use searchParams
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/newsletter/unsubscribe?token=...
  * Redirects to the unsubscribe confirmation page

@@ -4,6 +4,9 @@ import { confirmSubscriber } from '@/lib/subscribers'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+// Force dynamic rendering since we use searchParams
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams

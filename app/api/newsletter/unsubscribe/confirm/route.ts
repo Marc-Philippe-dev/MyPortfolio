@@ -4,6 +4,9 @@ import { unsubscribeByToken, getSubscriberByToken } from '@/lib/subscribers'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+// Force dynamic rendering since we use request.json() and external APIs
+export const dynamic = 'force-dynamic'
+
 /**
  * POST /api/newsletter/unsubscribe/confirm
  * Finalizes the unsubscribe process after user confirmation
